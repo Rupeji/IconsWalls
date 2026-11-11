@@ -109,3 +109,8 @@ case $opt in
     2) quitar_iconos ;;
     *) echo "Opción inválida" ;;
 esac
+
+
+
+# gsettings set org.cinnamon.desktop.default-applications.terminal exec 'kitty'
+# gsettings set org.cinnamon.desktop.default-applications.terminal exec-arg '-e'
