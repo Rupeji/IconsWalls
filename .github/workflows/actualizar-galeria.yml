@@ -1,0 +1,32 @@
+name: Actualizar Galería de Wallpapers
+
+on:
+  push:
+    paths:
+      - 'wallpapers/**' # Cambia esto por el nombre exacto de tu carpeta
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Generar lista de imágenes en el README
+        run: |
+          echo "# Mis Wallpapers" > README.md
+          echo "" >> README.md
+          for img in wallpapers/*.{jpg,jpeg,png,webp}; do
+            [ -e "$img" ] || continue
+            echo "![Wallpaper]($img)" >> README.md
+          done
+
+      - name: Guardar cambios
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Actualiza galería de wallpapers" && git push)
