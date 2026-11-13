@@ -418,6 +418,5 @@
   </tr>
   <tr>
     <td align="center"><img src="Wallpapers/0195.png" width="100%"></td>
-    <td align="center"><img src="Wallpapers/0206.png" width="100%"></td>
   </tr>
 </table>
