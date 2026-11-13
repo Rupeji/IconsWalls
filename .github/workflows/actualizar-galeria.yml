@@ -20,9 +20,10 @@ jobs:
         run: |
           echo "# Mis Wallpapers" > README.md
           echo "" >> README.md
+          shopt -s nocaseglob
           for img in Wallpapers/*.{jpg,jpeg,png,webp}; do
             [ -e "$img" ] || continue
-            echo "![Wallpaper]($img)" >> README.md
+            echo "<img src=\"$img\" width=\"32%\">" >> README.md
           done
 
       - name: Guardar cambios
