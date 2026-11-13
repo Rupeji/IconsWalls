@@ -2,6 +2,7 @@ name: Actualizar Galería de Wallpapers
 
 on:
   push:
+  workflow_dispatch:
     paths:
       - 'Wallpapers/**' # Cambia esto por el nombre exacto de tu carpeta
 
