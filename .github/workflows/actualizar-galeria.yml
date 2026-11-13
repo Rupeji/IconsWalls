@@ -23,7 +23,7 @@ jobs:
           shopt -s nocaseglob
           for img in Wallpapers/*.{jpg,jpeg,png,webp}; do
             [ -e "$img" ] || continue
-            echo "<img src=\"$img\" width=\"32%\">" >> README.md
+            printf '<img src="%s" width="32%%"> ' "$img" >> README.md
           done
 
       - name: Guardar cambios
