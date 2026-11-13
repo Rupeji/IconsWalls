@@ -2,9 +2,9 @@ name: Actualizar Galería de Wallpapers
 
 on:
   push:
-  workflow_dispatch:
     paths:
       - 'Wallpapers/**' # Cambia esto por el nombre exacto de tu carpeta
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -20,11 +20,31 @@ jobs:
         run: |
           echo "# Mis Wallpapers" > README.md
           echo "" >> README.md
+          echo "<table>" >> README.md
+          
           shopt -s nocaseglob
+          count=0
           for img in Wallpapers/*.{jpg,jpeg,png,webp}; do
             [ -e "$img" ] || continue
-            printf '<img src="%s" width="32%%"> ' "$img" >> README.md
+            
+            if [ $((count % 3)) -eq 0 ]; then
+              echo "  <tr>" >> README.md
+            fi
+            
+            printf '    <td align="center"><img src="%s" width="100%%"></td>\n' "$img" >> README.md
+            count=$((count + 1))
+            
+            if [ $((count % 3)) -eq 0 ]; then
+              echo "  </tr>" >> README.md
+            fi
           done
+          
+          # Cerrar la fila si el total de imágenes no es múltiplo de 3
+          if [ $((count % 3)) -ne 0 ]; then
+            echo "  </tr>" >> README.md
+          fi
+          
+          echo "</table>" >> README.md
 
       - name: Guardar cambios
         run: |
@@ -32,3 +52,4 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add README.md
           git diff --quiet && git diff --staged --quiet || (git commit -m "Actualiza galería de wallpapers" && git push)
+
