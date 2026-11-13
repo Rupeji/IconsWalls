@@ -402,17 +402,16 @@
     <td align="center"><img src="Wallpapers/0124.png" width="100%"></td>
   </tr>
   <tr>
-    <td align="center"><img src="Wallpapers/0133.png" width="100%"></td>
     <td align="center"><img src="Wallpapers/0143.png" width="100%"></td>
     <td align="center"><img src="Wallpapers/0163.png" width="100%"></td>
+    <td align="center"><img src="Wallpapers/0165.png" width="100%"></td>
   </tr>
   <tr>
-    <td align="center"><img src="Wallpapers/0165.png" width="100%"></td>
     <td align="center"><img src="Wallpapers/0191.png" width="100%"></td>
     <td align="center"><img src="Wallpapers/0192.png" width="100%"></td>
+    <td align="center"><img src="Wallpapers/0193.png" width="100%"></td>
   </tr>
   <tr>
-    <td align="center"><img src="Wallpapers/0193.png" width="100%"></td>
     <td align="center"><img src="Wallpapers/0195.png" width="100%"></td>
   </tr>
 </table>
