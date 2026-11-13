@@ -3,7 +3,7 @@ name: Actualizar Galería de Wallpapers
 on:
   push:
     paths:
-      - 'wallpapers/**' # Cambia esto por el nombre exacto de tu carpeta
+      - 'Wallpapers/**' # Cambia esto por el nombre exacto de tu carpeta
 
 permissions:
   contents: write
